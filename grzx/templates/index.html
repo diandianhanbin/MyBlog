@@ -7,11 +7,11 @@
       <figcaption><strong>渡人如渡己，渡已，亦是渡</strong> 当我们被误解时，会花很多时间去辩白。 但没有用，没人愿意听，大家习惯按自己的所闻、理解做出判别，每个人其实都很固执。与其努力且痛苦的试图扭转别人的评判，不如默默承受，给大家多一点时间和空间去了解。而我们省下辩解的功夫，去实现自身更久远的人生价值。其实，渡人如渡己，渡已，亦是渡人。</figcaption>
     </figure>
     <div class="card">
-      <h1>About Me</h1>
-      <p>网名：Sven Weng | 点点寒彬</p>
-      <p>职业：测试工程师</p>
-      <p>公司：华林证券</p>
-      <p>Email：234827102@qq.com</p>
+        <h1>About Me</h1>
+        <p>网名：{{ userinfo.nickname }}</p>
+        <p>职业：{{ userinfo.work }}</p>
+        <p>公司：{{ userinfo.company }}</p>
+        <p>Email：{{ userinfo.email }}</p>
       <ul class="linkmore">
         <li><a href="/" class="talk" title="给我留言"></a></li>
         <li><a href="/" class="address" title="联系地址"></a></li>
@@ -25,116 +25,46 @@
   <div class="blank"></div>
   <div class="blogs">
     <ul class="bloglist">
+      {% for content in blog_body %}
       <li>
         <div class="arrow_box">
           <div class="ti"></div>
           <!--三角形-->
           <div class="ci"></div>
           <!--圆形-->
-          <h2 class="title"><a href="/" target="_blank">我希望我的爱情是这样的</a></h2>
+          <h2 class="title"><a href="/" target="_blank">{{ content.blog_title }}</a></h2>
           <ul class="textinfo">
-            <a href="/"><img src="/static/images/s1.jpg"></a>
-            <p> 我希望我的爱情是这样的，相濡以沫，举案齐眉，平淡如水。我在岁月中找到他，依靠他，将一生交付给他。做他的妻子，他孩子的母亲，为他做饭，洗衣服，缝一颗掉了的纽扣。然后，我们一起在时光中变老。</p>
+            <a href="/"><img src="{{ content.blog_imgurl }}"></a>
+            <p> {{ content.blog_body }}</p>
           </ul>
           <ul class="details">
             <li class="likes"><a href="#">10</a></li>
             <li class="comments"><a href="#">34</a></li>
-            <li class="icon-time"><a href="#">2013-8-7</a></li>
+            <li class="icon-time"><a href="#">{{ content.blog_timestamp }}</a></li>
           </ul>
         </div>
         <!--arrow_box end--> 
       </li>
-      <li>
-        <div class="arrow_box">
-          <div class="ti"></div>
-          <!--三角形-->
-          <div class="ci"></div>
-          <!--圆形-->
-          <h2 class="title"><a href="/" target="_blank">谁更心软，谁就先长大</a></h2>
-          <ul class="textinfo">
-            <a href="/"><img src="/static/images/s2.jpg"></a>
-            <p> 男人都是孩子，需要用一生时间来长大。女人都想当孩子，却最擅长的角色是妈妈。恋爱一开始，是两个孩子之间的游戏，到后来，成了大人和孩子之间的游戏。恋爱这回事，总要有一个人先长大，对另一半多些包容和宠溺。而通常来看：谁更心软，谁就先长大...</p>
-          </ul>
-          <ul class="details">
-            <li class="likes"><a href="#">102</a></li>
-            <li class="comments"><a href="#">58</a></li>
-            <li class="icon-time"><a href="#">2013-8-7</a></li>
-          </ul>
-        </div>
-        <!--arrow_box end--> 
-      </li>
-      <li>
-        <div class="arrow_box">
-          <div class="ti"></div>
-          <!--三角形-->
-          <div class="ci"></div>
-          <!--圆形-->
-          <h2 class="title"><a href="/" target="_blank">Nothing is as sweet as you</a></h2>
-          <ul class="textinfo">
-            <a href="/"><img src="/static/images/s3.jpg"></a>
-            <p> 有时候不是我不理你，其实我也想你了，只是我不知道该对你说什么。不管过去如何，过去的已经过去，最好的总在未来等着你。当我们懂得珍惜平凡的幸福的时候，就已经成了人生的赢家。Nothing is as sweet as you再没什么，能甜蜜如你。我以为只要很认真的喜欢就能打动一个人...</p>
-          </ul>
-          <ul class="details">
-            <li class="likes"><a href="#">15</a></li>
-            <li class="comments"><a href="#">2</a></li>
-            <li class="icon-time"><a href="#">2013-8-7</a></li>
-          </ul>
-        </div>
-        <!--arrow_box end--> 
-      </li>
-      <li>
-        <div class="arrow_box">
-          <div class="ti"></div>
-          <!--三角形-->
-          <div class="ci"></div>
-          <!--圆形-->
-          <h2 class="title"><a href="/" target="_blank">谁更心软，谁就先长大</a></h2>
-          <ul class="textinfo">
-            <a href="/"><img src="/static/images/s4.jpg"></a>
-            <p> 男人都是孩子，需要用一生时间来长大。女人都想当孩子，却最擅长的角色是妈妈。恋爱一开始，是两个孩子之间的游戏，到后来，成了大人和孩子之间的游戏。恋爱这回事，总要有一个人先长大，对另一半多些包容和宠溺。而通常来看：谁更心软，谁就先长大...</p>
-          </ul>
-          <ul class="details">
-            <li class="likes"><a href="#">102</a></li>
-            <li class="comments"><a href="#">58</a></li>
-            <li class="icon-time"><a href="#">2013-8-7</a></li>
-          </ul>
-        </div>
-        <!--arrow_box end--> 
-      </li>
-      <li>
-        <div class="arrow_box">
-          <div class="ti"></div>
-          <!--三角形-->
-          <div class="ci"></div>
-          <!--圆形-->
-          <h2 class="title"><a href="/" target="_blank">趁我们都还年轻</a></h2>
-          <ul class="textinfo">
-            <a href="/"><img src="/static/images/s5.jpg"></a>
-            <p> 趁我们都还年轻,多走几步路，多欣赏下沿途的风景，不要急于抵达目的地而错过了流年里温暖的人和物；趁我们都还年轻，多说些浪漫的话语，多做些幼稚的事情，不要嫌人笑话错过了生命中最美好的片段和场合；趁我们都还年轻，把距离缩短，把时间延长。趁我们都还年轻，多做些我们想要做的任何事...</p>
-          </ul>
-          <ul class="details">
-            <li class="likes"><a href="#">15</a></li>
-            <li class="comments"><a href="#">2</a></li>
-            <li class="icon-time"><a href="#">2013-8-7</a></li>
-          </ul>
-        </div>
-        <!--arrow_box end--> 
-      </li>
+      {% endfor %}
     </ul>
     <!--bloglist end-->
     <aside>
       <div class="tuijian">
         <h2>推荐文章</h2>
         <ol>
-          <li><span><strong>1</strong></span><a href="/">有一种思念，是淡淡的幸福,一个心情一行文字</a></li>
-          <li><span><strong>2</strong></span><a href="/">励志人生-要做一个潇洒的女人</a></li>
-          <li><span><strong>3</strong></span><a href="/">女孩都有浪漫的小情怀――浪漫的求婚词</a></li>
-          <li><span><strong>4</strong></span><a href="/">Green绿色小清新的夏天-个人博客模板</a></li>
-          <li><span><strong>5</strong></span><a href="/">女生清新个人博客网站模板</a></li>
-          <li><span><strong>6</strong></span><a href="/">Wedding-婚礼主题、情人节网站模板</a></li>
-          <li><span><strong>7</strong></span><a href="/">Column 三栏布局 个人网站模板</a></li>
-          <li><span><strong>8</strong></span><a href="/">时间煮雨-个人网站模板</a></li>
-          <li><span><strong>9</strong></span><a href="/">花气袭人是酒香―个人网站模板</a></li>
+{#          <li><span><strong>1</strong></span><a href="/">有一种思念，是淡淡的幸福,一个心情一行文字</a></li>#}
+{#          <li><span><strong>2</strong></span><a href="/">励志人生-要做一个潇洒的女人</a></li>#}
+{#          <li><span><strong>3</strong></span><a href="/">女孩都有浪漫的小情怀――浪漫的求婚词</a></li>#}
+{#          <li><span><strong>4</strong></span><a href="/">Green绿色小清新的夏天-个人博客模板</a></li>#}
+{#          <li><span><strong>5</strong></span><a href="/">女生清新个人博客网站模板</a></li>#}
+{#          <li><span><strong>6</strong></span><a href="/">Wedding-婚礼主题、情人节网站模板</a></li>#}
+{#          <li><span><strong>7</strong></span><a href="/">Column 三栏布局 个人网站模板</a></li>#}
+{#          <li><span><strong>8</strong></span><a href="/">时间煮雨-个人网站模板</a></li>#}
+{#          <li><span><strong>9</strong></span><a href="/">花气袭人是酒香―个人网站模板</a></li>#}
+            {% for title in blog_body %}
+            <li><span><strong>{{ forloop.counter }}</strong></span><a href="/">{{ title.blog_title }}</a></li>
+            {% endfor %}
+
         </ol>
       </div>
       <div class="toppic">
@@ -172,7 +102,7 @@
       </div>
       <div class="viny">
         <dl>
-          <dt class="art"><img src="/static/images/artwork.png" alt="专辑"></dt>
+          <dt class="art"><img src="/static/images/music_img/slph.png" alt="专辑"></dt>
           <dd class="icon-song"><span></span>生来彷徨</dd>
           <dd class="icon-artist"><span></span>歌手：汪峰</dd>
           <dd class="icon-album"><span></span>所属专辑：《生来彷徨》</dd>

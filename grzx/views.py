@@ -1,10 +1,13 @@
 from django.shortcuts import render
-from .models import UserInfo
+from .models import UserInfo, BlogBody
 
 
 def index(request):
     userinfo = UserInfo.objects.first()
-    return render(request, 'index.html')
+    blog_body = BlogBody.objects.all()
+    return render(request,
+                  'index.html',
+                  {'userinfo': userinfo, 'blog_body': blog_body})
 
 
 def lists(request):

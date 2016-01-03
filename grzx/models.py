@@ -7,6 +7,7 @@ class BlogBody(models.Model):
     blog_body = models.TextField()
     blog_type = models.CharField(max_length=50)
     blog_timestamp = models.DateTimeField()
+    blog_imgurl = models.CharField(max_length=50, blank=True, null=True)
 
 
 class UserInfo(models.Model):
