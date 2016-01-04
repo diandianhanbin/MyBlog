@@ -32,7 +32,7 @@
           <!--三角形-->
           <div class="ci"></div>
           <!--圆形-->
-          <h2 class="title"><a href="/" target="_blank">{{ content.blog_title }}</a></h2>
+          <h2 class="title"><a href="{% url 'article' content.id%}" target="_blank">{{ content.blog_title }}</a></h2>
           <ul class="textinfo">
             <a href="/"><img src="{{ content.blog_imgurl }}"></a>
             <p> {{ content.blog_body }}</p>

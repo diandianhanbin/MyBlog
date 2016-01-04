@@ -5,5 +5,5 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^lists/', views.lists, name='list'),
     url(r'^news/', views.news, name='news'),
-    url(r'^view/', views.view, name='view')
+    url(r'^article/(?P<blog_body_id>[0-9])/$', views.article, name='article'),
 ]

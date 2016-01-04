@@ -18,5 +18,6 @@ def news(request):
     return render(request, 'news.html')
 
 
-def view(request):
-    return render(request, 'view.html')
+def article(request, blog_body_id=''):
+    blog_content = BlogBody.objects.get(id=blog_body_id)
+    return render(request, 'view.html', {'blog_content': blog_content})
