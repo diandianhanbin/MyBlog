@@ -28,3 +28,8 @@ def python(request):
     sql = 'select id, blog_title, blog_type, blog_timestamp, blog_body from grzx_blogbody WHERE blog_type = "Python"'
     python_blog = BlogBody.objects.raw(sql)
     return render(request, 'python_list.html', {'python_blog': python_blog})
+
+
+def abouttest(request):
+    test_blog = BlogBody.objects.filter(blog_type='abouttest')
+    return render(request, 'test_list.html', {'test_blog': test_blog})
