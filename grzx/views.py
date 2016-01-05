@@ -11,7 +11,7 @@ def index(request):
 
 
 def lists(request):
-    return render(request, 'list.html')
+    return render(request, 'python_list.html')
 
 
 def news(request):
@@ -21,3 +21,10 @@ def news(request):
 def article(request, blog_body_id=''):
     blog_content = BlogBody.objects.get(id=blog_body_id)
     return render(request, 'view.html', {'blog_content': blog_content})
+
+
+def python(request):
+    # python_blog = BlogBody.objects.filter(blog_type='Python')
+    sql = 'select id, blog_title, blog_type, blog_timestamp, blog_body from grzx_blogbody WHERE blog_type = "Python"'
+    python_blog = BlogBody.objects.raw(sql)
+    return render(request, 'python_list.html', {'python_blog': python_blog})

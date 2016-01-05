@@ -62,7 +62,7 @@
 {#          <li><span><strong>8</strong></span><a href="/">时间煮雨-个人网站模板</a></li>#}
 {#          <li><span><strong>9</strong></span><a href="/">花气袭人是酒香―个人网站模板</a></li>#}
             {% for title in blog_body %}
-            <li><span><strong>{{ forloop.counter }}</strong></span><a href="/">{{ title.blog_title }}</a></li>
+            <li><span><strong>{{ forloop.counter }}</strong></span><a href="{% url 'article' title.id%}">{{ title.blog_title }}</a></li>
             {% endfor %}
 
         </ol>
