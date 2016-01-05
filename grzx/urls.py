@@ -8,4 +8,6 @@ urlpatterns = [
     url(r'^article/(?P<blog_body_id>\d+)/$', views.article, name='article'),
     url(r'^python/', views.python, name='python'),
     url(r'^abouttest/', views.abouttest, name='abouttest'),
+    url(r'^mytalk/', views.mytalk, name='mytalk'),
+    url(r'^diary/', views.diary, name='diary')
 ]

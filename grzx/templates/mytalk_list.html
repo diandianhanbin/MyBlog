@@ -6,13 +6,13 @@
     <div class="newlist">
   <h2><span>
       <a href="/">首页</a>
+      <a href="/grzx/python">Python</a>
       <a href="/grzx/abouttest/">测试相关</a>
-      <a href="/grzx/mytalk/">个人扯淡</a>
       <a href="/grzx/diary/">偶尔能想起来的日记</a>
-</span>您当前的位置：<a href="/">首页</a>&nbsp;>&nbsp;<a href="/grzx/python/">Python</a></h2>
+</span>您当前的位置：<a href="/">首页</a>&nbsp;>&nbsp;<a href="/grzx/mytalk/">个人扯淡</a></h2>
 
 <ul>
-    {% for x in python_blog %}
+    {% for x in mytalk_blog %}
         <p class="ptit"><b><a href="{% url 'article' x.id %}"> {{ x.blog_title }}</a></b></p>
         <p class="ptime">发布时间：{{ x.blog_timestamp }} 作者：{{ x.blog_author }}  分类：{{ x.blog_type }} </p>
         <div class="pcon">{{ x.blog_body }}</div>

@@ -33,3 +33,13 @@ def python(request):
 def abouttest(request):
     test_blog = BlogBody.objects.filter(blog_type='abouttest')
     return render(request, 'test_list.html', {'test_blog': test_blog})
+
+
+def mytalk(request):
+    mytalk_blog = BlogBody.objects.filter(blog_type='mytalk')
+    return render(request, 'mytalk_list.html', {'mytalk_blog': mytalk_blog})
+
+
+def diary(request):
+    diary_blog = BlogBody.objects.filter(blog_type='diary')
+    return render(request, 'diary_list.html', {'diary_blog': diary_blog})
