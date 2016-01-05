@@ -1,23 +1,35 @@
 {% extends "base.html" %}
 {% block bodycontent %}
 <!--header end-->
-<div id="mainbody">
+<div id="mainbody" style="background-color: #333333">
   <div class="blogs">
     <div class="newlist">
-  <h2><span>
-      <a href="/">首页</a>
-      <a href="/grzx/abouttest/">测试相关</a>
-      <a href="/grzx/mytalk/">个人扯淡</a>
-      <a href="/grzx/diary/">偶尔能想起来的日记</a>
-</span>您当前的位置：<a href="/">首页</a>&nbsp;>&nbsp;<a href="/grzx/python/">Python</a></h2>
+  <h2>您当前的位置：<a href="/">首页</a>&nbsp;>&nbsp;新增文章</h2>
 
 <ul>
-    {% for x in python_blog %}
-        <p class="ptit"><b><a href="{% url 'article' x.id %}"> {{ x.blog_title }}</a></b></p>
-        <p class="ptime">发布时间：{{ x.blog_timestamp }} 作者：{{ x.blog_author }}  分类：{{ x.blog_type }} </p>
-        <div class="pcon">{{ x.blog_body }}</div>
-        <div class="line"></div>
-    {% endfor %}
+{#    {% for x in diary_blog %}#}
+{#        <p class="ptit"><b><a href="{% url 'article' x.id %}"> {{ x.blog_title }}</a></b></p>#}
+{#        <p class="ptime">发布时间：{{ x.blog_timestamp }} 作者：{{ x.blog_author }}  分类：{{ x.blog_type }} </p>#}
+{#        <div class="pcon">{{ x.blog_body }}</div>#}
+{#        <div class="line"></div>#}
+{#    {% endfor %}#}
+<form method="get" action="/grzx/sub_article">
+    {% csrf_token %}
+    <p>文章标题</p>
+    <div>
+        <select name="article_type" style="height: 20px; width: 120px;">
+            <option selected="selected">请选择文章类型</option>
+            <option value="Python">Python</option>
+            <option value="abouttest">测试相关</option>
+            <option value="mytalk">个人杂谈</option>
+            <option value="diary">偶尔能想起来的日记</option>
+        </select>
+        <input name="article_title" type="text" style="height: 20px;width: 500px;" placeholder="请输入文章标题">
+    </div>
+    <p>文章内容</p>
+    <textarea name="article_editor" rows="55" style="width: 630px;"></textarea>
+    <input type="submit" value="提交" style="margin-left: 300px;width: 60px;height: 20px;">
+</form>
 </ul>
 
 <div class="page">

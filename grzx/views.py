@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import UserInfo, BlogBody
+import time
 
 
 def index(request):
@@ -43,3 +44,17 @@ def mytalk(request):
 def diary(request):
     diary_blog = BlogBody.objects.filter(blog_type='diary')
     return render(request, 'diary_list.html', {'diary_blog': diary_blog})
+
+
+def add_article(request):
+    return render(request, 'add_article.html')
+
+
+def sub_article(request):
+    if request.method == 'GET':
+        mytype = request.GET['article_type']
+        title = request.GET['article_title']
+        body = request.GET['article_editor']
+        updb = BlogBody(blog_title=title, blog_body=body, blog_type=mytype, blog_timestamp=time.strftime("%Y-%m-%d %X", time.localtime()))
+        updb.save()
+        return redirect('/grzx/'+mytype)
