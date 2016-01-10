@@ -66,10 +66,8 @@ def sub_article(request):
 
 # 处理文章删除和编辑
 def del_article(request, blog_body_id):
-    try:
-        BlogBody.objects.get(id=blog_body_id).delete()
-    finally:
-        return render(request, 'index.html')
+    BlogBody.objects.get(id=blog_body_id).delete()
+    return redirect('/')
 
 
 def edit_article(request):

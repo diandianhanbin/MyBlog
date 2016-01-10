@@ -8,7 +8,9 @@
       <h1 class="c_titile">{{ blog_content.blog_title }}</h1>
       <p class="box">发布时间：{{ blog_content.blog_timestamp }}<span>编辑：{{ blog_content.blog_author }}</span><a href="/">编辑</a> <a href="{% url 'del_article' blog_content.id %}">删除</a></p>
       <ul>
-        <img src="{{ blog_content.blog_imgurl }}">
+          {% if blog_content.blog_imgurl %}
+             <img src="{{ blog_content.blog_imgurl }}">
+          {% endif %}
         <p>{{ blog_content.blog_body | linebreaksbr }}</p>
       </ul>
       <div class="share"> 
