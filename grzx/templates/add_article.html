@@ -13,7 +13,7 @@
 {#        <div class="pcon">{{ x.blog_body }}</div>#}
 {#        <div class="line"></div>#}
 {#    {% endfor %}#}
-<form method="get" action="/grzx/sub_article">
+<form method="post" action="/grzx/sub_article/">
     {% csrf_token %}
     <p>文章标题</p>
     <div>

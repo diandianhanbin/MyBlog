@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import UserInfo, BlogBody
 import time
+from django.db import connection
 
 
+# 处理首页已经日常的视图,包含首页,列表显示,文章详情,以及各个type页的列表
 def index(request):
     userinfo = UserInfo.objects.first()
     blog_body = BlogBody.objects.all()[:6:-1]
@@ -26,8 +28,6 @@ def article(request, blog_body_id=''):
 
 def python(request):
     python_blog = BlogBody.objects.filter(blog_type='Python')[::-1]
-    # sql = 'select id, blog_title, blog_type, blog_timestamp, blog_body from grzx_blogbody WHERE blog_type = "Python"'
-    # python_blog = BlogBody.objects.raw(sql)
     return render(request, 'python_list.html', {'python_blog': python_blog})
 
 
@@ -46,15 +46,31 @@ def diary(request):
     return render(request, 'diary_list.html', {'diary_blog': diary_blog})
 
 
+# 新增文章时调用add_article跳转新增页面,sub_article则吧新增文章处理后自动跳转到文章内容页详情
 def add_article(request):
     return render(request, 'add_article.html')
 
 
 def sub_article(request):
-    if request.method == 'GET':
-        mytype = request.GET['article_type']
-        title = request.GET['article_title']
-        body = request.GET['article_editor']
+    cursor = connection.cursor()
+    if request.method == 'POST':
+        mytype = request.POST['article_type']
+        title = request.POST['article_title']
+        body = request.POST['article_editor']
         updb = BlogBody(blog_title=title, blog_body=body, blog_type=mytype, blog_timestamp=time.strftime("%Y-%m-%d %X", time.localtime()), blog_author='点点寒彬')
         updb.save()
-        return redirect('/grzx/'+mytype)
+        cursor.execute('select max(id) from grzx_blogbody where blog_type = %s ', [mytype])
+        new_id = cursor.fetchone()
+        return redirect('/grzx/article/' + str(new_id[0]) + '/')
+
+
+# 处理文章删除和编辑
+def del_article(request, blog_body_id):
+    try:
+        BlogBody.objects.get(id=blog_body_id).delete()
+    finally:
+        return render(request, 'index.html')
+
+
+def edit_article(request):
+    pass

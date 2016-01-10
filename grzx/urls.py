@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^diary/', views.diary, name='diary'),
     url(r'^add_article/', views.add_article, name='add_article'),
     url(r'^sub_article/', views.sub_article, name='sub_article'),
+    url(r'^del_article/(?P<blog_body_id>\d+)/$', views.del_article, name='del_article'),
 ]
