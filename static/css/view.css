@@ -48,7 +48,7 @@ _width:expression((document.documentElement.clientWidth||document.body.clientWid
 .ptime{color:#747474;margin-bottom: 10px;}
 .ptit{line-height:30px;font-size:14px}
 .ptit a{color:#000}
-.pcon{line-height:3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pcon{line-height:30px;}
 .pcon a {color: #FFF;float: right;background: #f90;padding: 0 5px;clear: both;}
 .pcon a:hover {color: #fff;text-shadow: 1px 1px #7E7E7E;}
 .line {height: 10px;overflow: hidden;width: 100%;margin: 10px 0;clear: both;border-bottom: 1px dashed #ccc;}

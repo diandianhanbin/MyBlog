@@ -1,7 +1,7 @@
 @charset "gb2312";
 /* CSS Document */
 * { margin: 0; padding: 0 }
-body { font: 12px "ËÎÌå", "Arial Narrow", HELVETICA; color: #3F3E3C; line-height: 1.5; background: #333; }
+body { font: 14px "Î¢ÈíÑÅºÚ", "Microsoft YaHei", HELVETICA; color: #3F3E3C; line-height: 1.5; background: #333; }
 img { border: 0; vertical-align: middle }
 h1, h2, h3, h4, h5, h6 { font-weight: normal; }
 h1 { font: 24px "Î¢ÈíÑÅºÚ", "Microsoft YaHei", Arial, Helvetica, sans-serif }

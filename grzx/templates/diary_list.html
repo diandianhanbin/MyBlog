@@ -15,7 +15,7 @@
     {% for x in diary_blog %}
         <p class="ptit"><b><a href="{% url 'article' x.id %}"> {{ x.blog_title }}</a></b></p>
         <p class="ptime">发布时间：{{ x.blog_timestamp }} 作者：{{ x.blog_author }}  分类：{{ x.blog_type }} </p>
-        <div class="pcon">{{ x.blog_body }}</div>
+        <div class="pcon">{{ x.blog_body | slice:":100"  }}</div>
         <div class="line"></div>
     {% endfor %}
 </ul>
