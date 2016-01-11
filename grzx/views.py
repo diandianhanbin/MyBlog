@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import UserInfo, BlogBody
 import time
 from django.db import connection
+# from markdown import markdown
 
 
 # 处理首页已经日常的视图,包含首页,列表显示,文章详情,以及各个type页的列表
@@ -56,6 +57,7 @@ def sub_article(request):
     if request.method == 'POST':
         mytype = request.POST['article_type']
         title = request.POST['article_title']
+        # body = markdown(request.POST['article_editor'])
         body = request.POST['article_editor']
         updb = BlogBody(blog_title=title, blog_body=body, blog_type=mytype, blog_timestamp=time.strftime("%Y-%m-%d %X", time.localtime()), blog_author='点点寒彬')
         updb.save()
