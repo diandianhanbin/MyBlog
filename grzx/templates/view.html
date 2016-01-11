@@ -8,14 +8,14 @@
     <div id="index_view">
       <h2 class="t_nav"><a href="/">网站首页</a><a href="/">慢生活</a></h2>
       <h1 class="c_titile">{{ blog_content.blog_title }}</h1>
-      <p class="box">发布时间：{{ blog_content.blog_timestamp }}<span>编辑：{{ blog_content.blog_author }}</span><a href="/">编辑</a> <a href="{% url 'del_article' blog_content.id %}">删除</a></p>
+      <p class="box">发布时间：{{ blog_content.blog_timestamp }}<span>作者：{{ blog_content.blog_author }}</span><a href="/">编辑</a> <a href="{% url 'del_article' blog_content.id %}">删除</a></p>
       <ul>
           {% if blog_content.blog_imgurl %}
              <img src="{{ blog_content.blog_imgurl }}">
           {% endif %}
-
+        <pre style="word-wrap: break-word;word-break:break-all;">
           {{ blog_content.blog_body | custom_markdown }}
-
+        </pre>
 
       </ul>
       <div class="share"> 
@@ -41,7 +41,7 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
     </div>
     <!--bloglist end-->
     <aside>
-        <div class="card" style="width: 280px;">
+        <div class="card" style="width: 280px;position: fixed">
             <h1>About Me</h1>
             <p>网名：Sven Weng | 点点寒彬</p>
             <p>职业：测试工程师</p>
@@ -55,7 +55,7 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
     {#        <li><a href="/" class="heart" title="关注我"></a></li>#}
           </ul>
         </div>
-      <div class="search">
+      <div class="search" style="position: relative;top: 300px;">
         <form class="searchform" method="get" action="#">
           <input type="text" name="s" value="Search" onfocus="this.value=''" onblur="this.value='Search'">
         </form>
