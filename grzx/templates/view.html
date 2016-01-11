@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load markup %}
+{% load custom_markdown %}
 {% block bodycontent %}
 
 <!--header end-->
@@ -14,7 +14,7 @@
              <img src="{{ blog_content.blog_imgurl }}">
           {% endif %}
 
-          {{ blog_content.blog_body | markdown }}
+          {{ blog_content.blog_body | custom_markdown }}
 
 
       </ul>
