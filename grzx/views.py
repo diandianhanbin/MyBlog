@@ -9,9 +9,10 @@ from django.db import connection
 def index(request):
     userinfo = UserInfo.objects.first()
     blog_body = BlogBody.objects.all()[:6:-1]
+    hot_rank = BlogBody.objects.all().order_by('blog_clicknum')[:5]
     return render(request,
                   'index.html',
-                  {'userinfo': userinfo, 'blog_body': blog_body})
+                  {'userinfo': userinfo, 'blog_body': blog_body, 'hot_rand': hot_rank})
 
 
 def lists(request):
@@ -23,7 +24,14 @@ def news(request):
 
 
 def article(request, blog_body_id=''):
+    """
+    处理点击事件,并且点击数加一
+    """
     blog_content = BlogBody.objects.get(id=blog_body_id)
+    num = blog_content.blog_clicknum
+    num += 1
+    blog_content.blog_clicknum = num
+    blog_content.save()
     return render(request, 'view.html', {'blog_content': blog_content})
 
 

@@ -13,9 +13,13 @@
           {% if blog_content.blog_imgurl %}
              <img src="{{ blog_content.blog_imgurl }}">
           {% endif %}
-        <pre style="word-wrap: break-word;word-break:break-all;">
-          {{ blog_content.blog_body | custom_markdown }}
-        </pre>
+        <p style="word-wrap: break-word;word-break:break-all;">
+            {% if blog_content.blog_ismarkdown == '1' %}
+                {{ blog_content.blog_body | custom_markdown }}
+            {% elif blog_content.blog_ismarkdown == '0' %}
+                {{ blog_content.blog_body }}
+            {% endif %}
+        </p>
 
       </ul>
       <div class="share"> 
