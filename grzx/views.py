@@ -9,10 +9,10 @@ from django.db import connection
 def index(request):
     userinfo = UserInfo.objects.first()
     blog_body = BlogBody.objects.all()[:6:-1]
-    hot_rank = BlogBody.objects.all().order_by('blog_clicknum')[:5]
+    hot_rank = BlogBody.objects.all().order_by('-blog_clicknum')[:5]
     return render(request,
                   'index.html',
-                  {'userinfo': userinfo, 'blog_body': blog_body, 'hot_rand': hot_rank})
+                  {'userinfo': userinfo, 'blog_body': blog_body, 'hot_rank': hot_rank})
 
 
 def lists(request):

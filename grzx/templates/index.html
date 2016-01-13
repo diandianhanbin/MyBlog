@@ -93,7 +93,7 @@
 {#          <li><span><a href="/">三栏布局</a></span><a href="/">Column 三栏布局 个人网站模板</a></li>#}
 {#          <li><span><a href="/">个人网站模板</a></span><a href="/">时间煮雨-个人网站模板</a></li>#}
 {#          <li><span><a href="/">古典风格</a></span><a href="/">花气袭人是酒香―个人网站模板</a></li>#}
-            {% for foo in hot_rand %}
+            {% for foo in hot_rank %}
                 <li><span><a href="{% url 'article' foo.id %}">{{ foo.blog_type }}</a></span><a href="{% url 'article' foo.id %}">{{ foo.blog_title }}</a></li>
             {% endfor %}
 
