@@ -18,13 +18,17 @@
     <p>文章标题</p>
     <div>
         <select name="article_type" style="height: 20px; width: 120px;">
-            <option selected="selected">请选择文章类型</option>
-            <option value="Python">Python</option>
+            <option value="Python" selected="selected">Python</option>
             <option value="abouttest">测试相关</option>
             <option value="mytalk">个人杂谈</option>
             <option value="diary">偶尔能想起来的日记</option>
         </select>
-        <input name="article_title" type="text" style="height: 20px;width: 500px;" placeholder="请输入文章标题">
+        <input name="article_title" type="text" style="height: 20px;width: 400px;" placeholder="请输入文章标题">
+{#        <input name="article_markdown" type="checkbox" value="1">MarkDown#}
+        <select name="article_markdown" style="height: 20px; width: 90px;">
+            <option value="1" selected="selected">MarkDown</option>
+            <option value="0">普通文本</option>
+        </select>
     </div>
     <p>文章内容</p>
     <textarea name="article_editor" rows="55" style="width: 630px;"></textarea>

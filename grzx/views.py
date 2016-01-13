@@ -67,7 +67,9 @@ def sub_article(request):
         title = request.POST['article_title']
         # body = markdown(request.POST['article_editor'])
         body = request.POST['article_editor']
-        updb = BlogBody(blog_title=title, blog_body=body, blog_type=mytype, blog_timestamp=time.strftime("%Y-%m-%d %X", time.localtime()), blog_author='点点寒彬')
+        markdown = request.POST['article_markdown']
+        print(markdown)
+        updb = BlogBody(blog_title=title, blog_ismarkdown=markdown, blog_body=body, blog_type=mytype, blog_timestamp=time.strftime("%Y-%m-%d %X", time.localtime()), blog_author='点点寒彬', blog_clicknum=1, blog_like=0)
         updb.save()
         cursor.execute('select max(id) from grzx_blogbody where blog_type = %s ', [mytype])
         new_id = cursor.fetchone()
